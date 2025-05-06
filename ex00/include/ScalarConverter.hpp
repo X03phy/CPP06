@@ -6,7 +6,7 @@
 /*   By: ebonutto <ebonutto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:51:43 by ebonutto          #+#    #+#             */
-/*   Updated: 2025/05/06 15:47:48 by ebonutto         ###   ########.fr       */
+/*   Updated: 2025/05/06 15:58:26 by ebonutto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ private:
 // Print functions 
 	static void	printChar( const std::string &input );
 	static void	printInteger( const std::string &input );
-	
+
 public:
 // Special class functions
 	static void	convert( const std::string &input );
