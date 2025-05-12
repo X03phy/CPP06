@@ -6,7 +6,7 @@
 /*   By: ebonutto <ebonutto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:51:43 by ebonutto          #+#    #+#             */
-/*   Updated: 2025/05/06 15:58:26 by ebonutto         ###   ########.fr       */
+/*   Updated: 2025/05/07 14:34:08 by ebonutto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <sstream>
+#include <cfloat>
 
 class	ScalarConverter {
 private:
@@ -45,9 +46,10 @@ private:
 	static bool		isInteger( const std::string &input );
 	static bool		isFloat( const std::string &input );
 
-// Print functions 
+// Print functions
 	static void	printChar( const std::string &input );
 	static void	printInteger( const std::string &input );
+	static void	printFloat( const std::string &input );
 
 public:
 // Special class functions

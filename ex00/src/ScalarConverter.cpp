@@ -6,7 +6,7 @@
 /*   By: ebonutto <ebonutto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:51:40 by ebonutto          #+#    #+#             */
-/*   Updated: 2025/05/06 15:56:52 by ebonutto         ###   ########.fr       */
+/*   Updated: 2025/05/12 16:54:16 by ebonutto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ bool	ScalarConverter::isChar( const std::string &input ) {
 }
 
 bool	ScalarConverter::isInteger( const std::string &input ) {
-	if (input.length() > 11)
-		return (false);
 	char	*end;
 	long	nb = std::strtol(input.c_str(), &end, 10);
 	if (end == input.c_str() || *end != '\0')
@@ -49,13 +47,10 @@ bool	ScalarConverter::isInteger( const std::string &input ) {
 }
 
 bool	ScalarConverter::isFloat( const std::string &input ) {
-	if (input.length() > 11)
-		return (false);
 	char	*end;
-	long	nb = std::strtol(input.c_str(), &end, 10);
-	if (end == input.c_str() || *end != '\0')
-		return (false);
-	if (nb > 2147483647 || nb < -2147483648)
+	float	nb = std::strtof(input.c_str(), &end);
+	(void)nb;
+	if (end == input.c_str() || *end != 'f' || *(end + 1) != '\0')
 		return (false);
 	return (true);
 }
@@ -65,6 +60,8 @@ ScalarConverter::e_type	ScalarConverter::parseType( const std::string &input ) {
 		return (CHARACTER);
 	else if (ScalarConverter::isInteger(input))
 		return (INTEGER);
+	else if (ScalarConverter::isFloat(input))
+		return (FLOAT);
 	std::cout << "Ptn mais pq ??" << std::endl;
 	return (OTHER);
 }
@@ -79,7 +76,7 @@ void	ScalarConverter::printChar( const std::string &input ) {
 }
 
 void	ScalarConverter::printInteger( const std::string &input ) {
-	int	nb = static_cast<int>(std::strtol(input.c_str(), NULL, 10));
+	int	nb = atoi(input.c_str());
 	if (nb >= 32 && nb <= 126)
 		std::cout << "char: " << "\'" << static_cast<char>(nb) << "\'" << std::endl;
 	else
@@ -89,6 +86,21 @@ void	ScalarConverter::printInteger( const std::string &input ) {
 	std::cout << "double: " << input << ".0" << std::endl;
 }
 
+void	ScalarConverter::printFloat( const std::string &input ) {
+	float	nb = std::strtof(input.c_str(), NULL);
+	if (nb >= 32 && nb <= 126)
+		std::cout << "char: " << "\'" << static_cast<char>(nb) << "\'" << std::endl;
+	else
+		std::cout << "char: " << "Non displayable" << std::endl;
+	// if (std::floor(nb) >= -2147483648 && nb <= 2147483647)
+	// 	std::cout << "int: " << static_cast<int>(nb) << std::endl;
+	// else
+	// 	std::cout << "int: " << "Non displayable" << std::endl;
+	std::cout << "float: " << input << std::endl;
+	std::cout << "double: " << input << std::endl;
+}
+
+// Convert function
 void	ScalarConverter::convert( const std::string &input ) {
 	ScalarConverter::e_type type = ScalarConverter::parseType(input);
 
