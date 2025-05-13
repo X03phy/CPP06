@@ -6,7 +6,7 @@
 /*   By: ebonutto <ebonutto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 13:51:43 by ebonutto          #+#    #+#             */
-/*   Updated: 2025/05/07 14:34:08 by ebonutto         ###   ########.fr       */
+/*   Updated: 2025/05/13 15:05:31 by ebonutto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <cstdlib>
 #include <sstream>
 #include <cfloat>
+#include <cmath>
+#include <iomanip>
 
 class	ScalarConverter {
 private:
@@ -27,7 +29,8 @@ private:
 		INTEGER,
 		FLOAT,
 		DOUBLE,
-		OTHER
+		OTHER,
+		SPECIAL
 	};
 
 // Default constructor and Destructor
@@ -45,11 +48,17 @@ private:
 	static bool		isChar( const std::string &input );
 	static bool		isInteger( const std::string &input );
 	static bool		isFloat( const std::string &input );
+	static bool		isDouble( const std::string &input );
+	static bool		isSpecialConvertion( const std::string &input );
 
 // Print functions
 	static void	printChar( const std::string &input );
 	static void	printInteger( const std::string &input );
+	static int	getPrecision( const std::string &input );
 	static void	printFloat( const std::string &input );
+	static void	printDouble( const std::string &input );
+	static void	printOther( void );
+	static void	printSpecialConvertion( const std::string &input );
 
 public:
 // Special class functions
