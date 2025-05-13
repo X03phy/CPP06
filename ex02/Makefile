@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ebonutto <ebonutto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/05/13 16:11:52 by ebonutto          #+#    #+#              #
-#    Updated: 2025/05/13 18:03:00 by ebonutto         ###   ########.fr        #
+#    Created: 2025/05/13 18:03:03 by ebonutto          #+#    #+#              #
+#    Updated: 2025/05/13 18:05:33 by ebonutto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Serialization
+NAME = Identify
 CPPC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -19,7 +19,7 @@ SRC_DIR = src/
 INC_DIR = include/
 
 SRC = main.cpp \
-	  Serialization.cpp
+	
 OBJ = $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 
 all: $(NAME)

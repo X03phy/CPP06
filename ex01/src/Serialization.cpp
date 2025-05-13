@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serialization.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebonutto <ebonutto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/13 16:14:52 by ebonutto          #+#    #+#             */
-/*   Updated: 2025/05/13 18:02:16 by ebonutto         ###   ########.fr       */
+/*   Created: 2025/05/13 17:51:30 by ebonutto          #+#    #+#             */
+/*   Updated: 2025/05/13 18:01:34 by ebonutto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Data.hpp"
 #include "Serialization.hpp"
 
-int main() {
-    Data d;
-    d.id = 42;
-    d.name = "Pierre";
+// Special class functions
+uintptr_t	Serialization::serialize(Data* ptr) {
+	return (reinterpret_cast<uintptr_t>(ptr));
+}
 
-    uintptr_t raw = Serialization::serialize(&d);
-    Data* restored = Serialization::deserialize(raw);
-
-    std::cout << "Original: " << &d << "\n";
-    std::cout << "Restored: " << restored << "\n";
-    std::cout << "ID: " << restored->id << ", Name: " << restored->name << std::endl;
-
-    return 0;
+Data*		Serialization::deserialize(uintptr_t raw) {
+	return (reinterpret_cast<Data *>(raw));
 }
