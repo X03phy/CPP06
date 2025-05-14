@@ -6,7 +6,7 @@
 #    By: ebonutto <ebonutto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/13 18:03:03 by ebonutto          #+#    #+#              #
-#    Updated: 2025/05/13 18:05:33 by ebonutto         ###   ########.fr        #
+#    Updated: 2025/05/14 17:50:05 by ebonutto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC_DIR = src/
 INC_DIR = include/
 
 SRC = main.cpp \
-	
+	  Base.cpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 
 all: $(NAME)
